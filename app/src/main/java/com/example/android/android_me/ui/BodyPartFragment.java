@@ -11,6 +11,7 @@ import android.widget.ImageView;
 
 import com.example.android.android_me.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,6 +23,8 @@ public class BodyPartFragment extends Fragment {
     private static final String TAG = "BodyPartActivity";
     private List<Integer> mImageIds;
     private int mListIndex;
+    private static String IMAGE_ID_LIST = "imageIds";
+    private static String LIST_INDEX = "listIndex";
 
 
     public BodyPartFragment(){}
@@ -29,6 +32,12 @@ public class BodyPartFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        if(savedInstanceState != null){
+            mImageIds = savedInstanceState.getIntegerArrayList(IMAGE_ID_LIST);
+            mListIndex = savedInstanceState.getInt(LIST_INDEX);
+        }
+
 
         //inflate the layout
         View rootView = inflater.inflate(R.layout.fragment_body_part,container,false);
@@ -51,5 +60,12 @@ public class BodyPartFragment extends Fragment {
 
     public void setListIndex(int index){
         mListIndex = index;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle currentState) {
+        currentState.putIntegerArrayList(IMAGE_ID_LIST, (ArrayList<Integer>) mImageIds);
+        currentState.putInt(LIST_INDEX,  mListIndex);
+
     }
 }

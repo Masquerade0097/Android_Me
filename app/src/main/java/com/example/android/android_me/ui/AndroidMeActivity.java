@@ -31,36 +31,38 @@ public class AndroidMeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_android_me);
 
-        BodyPartFragment headFragment = new BodyPartFragment();
-        BodyPartFragment stomachFragment = new BodyPartFragment();
-        BodyPartFragment legsFragment = new BodyPartFragment();
+        if(savedInstanceState == null) {
+            BodyPartFragment headFragment = new BodyPartFragment();
+            BodyPartFragment stomachFragment = new BodyPartFragment();
+            BodyPartFragment legsFragment = new BodyPartFragment();
 
-        headFragment.setImageIds(AndroidImageAssets.getHeads());
-        stomachFragment.setImageIds(AndroidImageAssets.getStomach());
-        legsFragment.setImageIds(AndroidImageAssets.getLegs());
+            headFragment.setImageIds(AndroidImageAssets.getHeads());
+            stomachFragment.setImageIds(AndroidImageAssets.getStomach());
+            legsFragment.setImageIds(AndroidImageAssets.getLegs());
 
-        headFragment.setListIndex(1);
-        stomachFragment.setListIndex(1);
-        legsFragment.setListIndex(1);
+            headFragment.setListIndex(1);
+            stomachFragment.setListIndex(1);
+            legsFragment.setListIndex(1);
 
 //  To make fragment transactions in your activity (such as add, remove, or replace a
 // fragment), you must use APIs from FragmentTransaction. You can get an instance of
 // FragmentTransaction from your Activity like this:
-        FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentManager fragmentManager = getSupportFragmentManager();
 //        The first argument passed to add() is the ViewGroup in which the fragment
 // should be placed, specified by resource ID, and the second parameter is the fragment
 // to add
 
-        fragmentManager.beginTransaction()
-                .add(R.id.head_container,headFragment)
-                .commit();
+            fragmentManager.beginTransaction()
+                    .add(R.id.head_container, headFragment)
+                    .commit();
 
-        fragmentManager.beginTransaction()
-                .add(R.id.stomach_container,stomachFragment)
-                .commit();
+            fragmentManager.beginTransaction()
+                    .add(R.id.stomach_container, stomachFragment)
+                    .commit();
 
-        fragmentManager.beginTransaction()
-                .add(R.id.legs_container,legsFragment)
-                .commit();
+            fragmentManager.beginTransaction()
+                    .add(R.id.legs_container, legsFragment)
+                    .commit();
+        }
     }
 }
