@@ -33,8 +33,19 @@
             android:id="@+id/head_container"
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:scaleType="centerInside"
-            />
+            android:scaleType="centerInside" />
+
+        <FrameLayout
+            android:id="@+id/stomach_container"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:scaleType="centerInside" />
+
+        <FrameLayout
+            android:id="@+id/legs_container"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:scaleType="centerInside" />
 
     </LinearLayout>
 
