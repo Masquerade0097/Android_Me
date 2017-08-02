@@ -26,6 +26,11 @@ import com.example.android.android_me.data.AndroidImageAssets;
 // This activity will display a custom Android image composed of three body parts: head, body, and legs
 public class AndroidMeActivity extends AppCompatActivity {
 
+    private int mHeadIndex;
+    private int mStomachIndex;
+    private int mLegsIndex;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,9 +45,9 @@ public class AndroidMeActivity extends AppCompatActivity {
             stomachFragment.setImageIds(AndroidImageAssets.getStomach());
             legsFragment.setImageIds(AndroidImageAssets.getLegs());
 
-            headFragment.setListIndex(0);
-            stomachFragment.setListIndex(0);
-            legsFragment.setListIndex(0);
+//            headFragment.setListIndex(mHeadIndex);
+//            stomachFragment.setListIndex(mStomachIndex);
+//            legsFragment.setListIndex(mLegsIndex);
 
 //  To make fragment transactions in your activity (such as add, remove, or replace a
 // fragment), you must use APIs from FragmentTransaction. You can get an instance of
@@ -51,6 +56,13 @@ public class AndroidMeActivity extends AppCompatActivity {
 //        The first argument passed to add() is the ViewGroup in which the fragment
 // should be placed, specified by resource ID, and the second parameter is the fragment
 // to add
+
+            int headIndex = getIntent().getIntExtra("headIndexStr", 0);
+            headFragment.setListIndex(headIndex);
+            int stomachIndex = getIntent().getIntExtra("stomachIndexStr", 0);
+            stomachFragment.setListIndex(stomachIndex);
+            int legIndex = getIntent().getIntExtra("legsIndexStr", 0);
+            legsFragment.setListIndex(legIndex);
 
             fragmentManager.beginTransaction()
                     .add(R.id.head_container, headFragment)
@@ -63,6 +75,7 @@ public class AndroidMeActivity extends AppCompatActivity {
             fragmentManager.beginTransaction()
                     .add(R.id.legs_container, legsFragment)
                     .commit();
+
         }
     }
 }
