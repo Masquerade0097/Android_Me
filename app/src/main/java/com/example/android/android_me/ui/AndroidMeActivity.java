@@ -40,9 +40,9 @@ public class AndroidMeActivity extends AppCompatActivity {
             stomachFragment.setImageIds(AndroidImageAssets.getStomach());
             legsFragment.setImageIds(AndroidImageAssets.getLegs());
 
-            headFragment.setListIndex(1);
-            stomachFragment.setListIndex(1);
-            legsFragment.setListIndex(1);
+            headFragment.setListIndex(0);
+            stomachFragment.setListIndex(0);
+            legsFragment.setListIndex(0);
 
 //  To make fragment transactions in your activity (such as add, remove, or replace a
 // fragment), you must use APIs from FragmentTransaction. You can get an instance of
