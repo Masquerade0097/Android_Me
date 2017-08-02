@@ -42,7 +42,7 @@ public class AndroidImageAssets {
         add(R.drawable.head12);
     }};
 
-    private static final List<Integer> bodies = new ArrayList<Integer>() {{
+    private static final List<Integer> stomach = new ArrayList<Integer>() {{
         add(R.drawable.body1);
         add(R.drawable.body2);
         add(R.drawable.body3);
@@ -74,26 +74,26 @@ public class AndroidImageAssets {
 
     private static final List<Integer> all = new ArrayList<Integer>() {{
         addAll(heads);
-        addAll(bodies);
+        addAll(stomach);
         addAll(legs);
     }};
     
 
-    // Getter methods that return lists of all head images, body images, and leg images
+    // Getter methods that return lists of all head images, stomach images, and leg images
 
     public static List<Integer> getHeads() {
         return heads;
     }
 
-    public static List<Integer> getBodies() {
-        return bodies;
+    public static List<Integer> getStomach() {
+        return stomach;
     }
 
     public static List<Integer> getLegs() {
         return legs;
     }
 
-    // Returns a list of all the images combined: heads, bodies, and legs in that order
+    // Returns a list of all the images combined: heads, stomach, and legs in that order
     public static List<Integer> getAll() {
         return all;
     }
