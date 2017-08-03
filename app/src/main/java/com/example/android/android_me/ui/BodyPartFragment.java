@@ -33,6 +33,11 @@ public class BodyPartFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
+        //SavedInstanceState use - Let we change head item index by clicking to 5 and legs to 4
+        //but when we rotate screen these indices gets changed to default ie. 0 and 0. So we
+        // want to save the instance of our activity such that when the activity is recreated
+        // then it reloades the previous instance that's why we use bundle
+
         if(savedInstanceState != null){
             mImageIds = savedInstanceState.getIntegerArrayList(IMAGE_ID_LIST);
             mListIndex = savedInstanceState.getInt(LIST_INDEX);
